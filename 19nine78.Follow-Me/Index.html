@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/19nine78.Follow-Me.js"></script>
+    <style type="text/css">
+        .container {
+            border: 1px solid #008000;
+            -webkit-box-shadow: 5px 5px 2px #cccccc;
+            box-shadow: 5px 5px 2px #cccccc;
+           
+            margin: 10px;
+            width: 300px;
+        }
+
+        .follower {
+            border: 1px solid #00008b;
+            -webkit-box-shadow: 2px 2px 1px #555555;
+            box-shadow: 2px 2px 1px #555555;
+            width: 50%;
+        }
+
+    </style>
+   
+</head>
+    <body>
+        <div class="container" data-id="1" data-name="Box 1" data-animal="Monkey">
+            <h1>Box 1</h1>
+            <a class="attach">Attach to me!</a>
+        </div>
+        <div class="container" data-id="2" data-name="Box 2" data-animal="Donkey">
+            <h1>Box 2</h1>
+            <a class="attach">Attach to me!</a>
+        </div>
+        <div class="container" data-id="3" data-name="Box 3" data-animal="Dog">
+            <h1>Box 3</h1>
+            <a class="attach">Attach to me!</a>
+        </div>
+        <div class="container" data-id="4" data-name="Box 4" data-animal="Cat">
+            <h1>Box 4</h1>
+            <a class="attach">Attach to me!</a>
+        </div>
+        <div class="container" data-id="5" data-name="Box 5" data-animal="Fish">
+            <h1>Box 5</h1>
+            <a class="attach">Attach to me!</a>
+        </div>
+    
+        <div class="follower">
+            <a class="context">Call GetContext</a>
+        </div>
+    
+        <script type="text/javascript">
+
+            $(".container").followMe({ 'follower': $('.follower') });
+
+
+            $(".context").on("click", function () {
+
+                var context = $(this).parents(".container");
+                var params = {
+                    Id: context.data("id"),
+                    Name: context.data("name"),
+                    Animal: context.data("animal")
+                };
+
+                console.log(params);
+            });
+
+        </script>
+    </body>
+</html>
